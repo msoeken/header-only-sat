@@ -1,0 +1,11 @@
+--- glucose-syrup-4.1/utils/Options.h	2016-12-08 13:48:26.000000000 +0100
++++ glucose-syrup-4.1bak/utils/Options.h	2018-10-08 14:28:49.000000000 +0200
+@@ -60,7 +60,7 @@
+     struct OptionLt {
+         bool operator()(const Option* x, const Option* y) {
+             int test1 = strcmp(x->category, y->category);
+-            return test1 < 0 || test1 == 0 && strcmp(x->type_name, y->type_name) < 0;
++            return test1 < 0 || (test1 == 0 && strcmp(x->type_name, y->type_name) < 0);
+         }
+     };
+ 
