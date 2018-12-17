@@ -1,0 +1,232 @@
+19a20,21
+> #pragma once
+> 
+3428c3430
+< Solver::Solver() :
+---
+> inline Solver::Solver() :
+3515c3517
+< Solver::Solver(const Solver &s) :
+---
+> inline Solver::Solver(const Solver &s) :
+3621c3623
+< Solver::~Solver() {
+---
+> inline Solver::~Solver() {
+3630c3632
+< void Solver::write_char(unsigned char ch) {
+---
+> inline void Solver::write_char(unsigned char ch) {
+3636c3638
+< void Solver::write_lit(int n) {
+---
+> inline void Solver::write_lit(int n) {
+3649c3651
+< void Solver::setIncrementalMode() {
+---
+> inline void Solver::setIncrementalMode() {
+3660c3662
+< void Solver::initNbInitialVars(int nb) {
+---
+> inline void Solver::initNbInitialVars(int nb) {
+3665c3667
+< bool Solver::isIncremental() {
+---
+> inline bool Solver::isIncremental() {
+3678c3680
+< Var Solver::newVar(bool sign, bool dvar) {
+---
+> inline Var Solver::newVar(bool sign, bool dvar) {
+3700c3702
+< bool Solver::addClause_(vec <Lit> &ps) {
+---
+> inline bool Solver::addClause_(vec <Lit> &ps) {
+3768c3770
+< void Solver::attachClause(CRef cr) {
+---
+> inline void Solver::attachClause(CRef cr) {
+3784c3786
+< void Solver::attachClausePurgatory(CRef cr) {
+---
+> inline void Solver::attachClausePurgatory(CRef cr) {
+3793c3795
+< void Solver::detachClause(CRef cr, bool strict) {
+---
+> inline void Solver::detachClause(CRef cr, bool strict) {
+3823c3825
+< void Solver::detachClausePurgatory(CRef cr, bool strict) {
+---
+> inline void Solver::detachClausePurgatory(CRef cr, bool strict) {
+3834c3836
+< void Solver::removeClause(CRef cr, bool inPurgatory) {
+---
+> inline void Solver::removeClause(CRef cr, bool inPurgatory) {
+3864c3866
+< bool Solver::satisfied(const Clause &c) const {
+---
+> inline bool Solver::satisfied(const Clause &c) const {
+3919c3921
+< void Solver::minimisationWithBinaryResolution(vec <Lit> &out_learnt) {
+---
+> inline void Solver::minimisationWithBinaryResolution(vec <Lit> &out_learnt) {
+3963c3965
+< void Solver::cancelUntil(int level) {
+---
+> inline void Solver::cancelUntil(int level) {
+3983c3985
+< Lit Solver::pickBranchLit() {
+---
+> inline Lit Solver::pickBranchLit() {
+4040c4042
+< void Solver::analyze(CRef confl, vec <Lit> &out_learnt, vec <Lit> &selectors, int &out_btlevel, unsigned int &lbd, unsigned int &szWithoutSelectors) {
+---
+> inline void Solver::analyze(CRef confl, vec <Lit> &out_learnt, vec <Lit> &selectors, int &out_btlevel, unsigned int &lbd, unsigned int &szWithoutSelectors) {
+4231c4233
+< bool Solver::litRedundant(Lit p, uint32_t abstract_levels) {
+---
+> inline bool Solver::litRedundant(Lit p, uint32_t abstract_levels) {
+4277c4279
+< void Solver::analyzeFinal(Lit p, vec <Lit> &out_conflict) {
+---
+> inline void Solver::analyzeFinal(Lit p, vec <Lit> &out_conflict) {
+4310c4312
+< void Solver::uncheckedEnqueue(Lit p, CRef from) {
+---
+> inline void Solver::uncheckedEnqueue(Lit p, CRef from) {
+4318c4320
+< void Solver::bumpForceUNSAT(Lit q) {
+---
+> inline void Solver::bumpForceUNSAT(Lit q) {
+4335c4337
+< CRef Solver::propagate() {
+---
+> inline CRef Solver::propagate() {
+4470c4472
+< CRef Solver::propagateUnaryWatches(Lit p) {
+---
+> inline CRef Solver::propagateUnaryWatches(Lit p) {
+4555c4557
+< void Solver::reduceDB() {
+---
+> inline void Solver::reduceDB() {
+4592c4594
+< void Solver::removeSatisfied(vec <CRef> &cs) {
+---
+> inline void Solver::removeSatisfied(vec <CRef> &cs) {
+4610c4612
+< void Solver::rebuildOrderHeap() {
+---
+> inline void Solver::rebuildOrderHeap() {
+4628c4630
+< bool Solver::simplify() {
+---
+> inline bool Solver::simplify() {
+4659c4661
+< void Solver::adaptSolver() {
+---
+> inline void Solver::adaptSolver() {
+4662c4664
+<     printf("c\nc Try to adapt solver strategies\nc \n");
+---
+>     // printf("c\nc Try to adapt solver strategies\nc \n");
+4673c4675
+<         printf("c Adjusting for low decision levels.\n");
+---
+>         // printf("c Adjusting for low decision levels.\n");
+4687c4689
+<         printf("c Adjusting for low successive conflicts.\n");
+---
+>         // printf("c Adjusting for low successive conflicts.\n");
+4690c4692
+<         printf("c Adjusting for high successive conflicts.\n");
+---
+>         // printf("c Adjusting for high successive conflicts.\n");
+4704c4706
+<         printf("c Adjusting for a very large number of true glue clauses found.\n");
+---
+>         // printf("c Adjusting for a very large number of true glue clauses found.\n");
+4707c4709
+<         printf("c Nothing extreme in this problem, continue with glucose default strategies.\n");
+---
+>         // printf("c Nothing extreme in this problem, continue with glucose default strategies.\n");
+4730c4732
+<         printf("c Activating Chanseok Strategy: moved %d clauses to the permanent set.\n", moved);
+---
+>         // printf("c Activating Chanseok Strategy: moved %d clauses to the permanent set.\n", moved);
+4749c4751
+<         printf("c Removing of non permanent clauses.\n");
+---
+>         // printf("c Removing of non permanent clauses.\n");
+4768c4770
+< lbool Solver::search(int nof_conflicts) {
+---
+> inline lbool Solver::search(int nof_conflicts) {
+4953c4955
+<                     printf("c last restart ## conflicts  :  %d %d \n", conflictC, decisionLevel());
+---
+>                     // printf("c last restart ## conflicts  :  %d %d \n", conflictC, decisionLevel());
+4968c4970
+< double Solver::progressEstimate() const {
+---
+> inline double Solver::progressEstimate() const {
+4982c4984
+< void Solver::printIncrementalStats() {
+---
+> inline void Solver::printIncrementalStats() {
+5021c5023
+< double Solver::luby(double y, int x) {
+---
+> inline double Solver::luby(double y, int x) {
+5040c5042
+< lbool Solver::solve_(bool do_simp, bool turn_off_simp) // Parameters are useless in core but useful for SimpSolver....
+---
+> inline lbool Solver::solve_(bool do_simp, bool turn_off_simp) // Parameters are useless in core but useful for SimpSolver....
+5163c5165
+< void Solver::toDimacs(FILE *f, Clause &c, vec <Var> &map, Var &max) {
+---
+> inline void Solver::toDimacs(FILE *f, Clause &c, vec <Var> &map, Var &max) {
+5173c5175
+< void Solver::toDimacs(const char *file, const vec <Lit> &assumps) {
+---
+> inline void Solver::toDimacs(const char *file, const vec <Lit> &assumps) {
+5182c5184
+< void Solver::toDimacs(FILE *f, const vec <Lit> &assumps) {
+---
+> inline void Solver::toDimacs(FILE *f, const vec <Lit> &assumps) {
+5228c5230
+< void Solver::relocAll(ClauseAllocator &to) {
+---
+> inline void Solver::relocAll(ClauseAllocator &to) {
+5276c5278
+< void Solver::garbageCollect() {
+---
+> inline void Solver::garbageCollect() {
+5293c5295
+< bool Solver::panicModeIsEnabled() {
+---
+> inline bool Solver::panicModeIsEnabled() {
+5298c5300
+< void Solver::parallelImportUnaryClauses() {
+---
+> inline void Solver::parallelImportUnaryClauses() {
+5302c5304
+< bool Solver::parallelImportClauses() {
+---
+> inline bool Solver::parallelImportClauses() {
+5307c5309
+< void Solver::parallelExportUnaryClause(Lit p) {
+---
+> inline void Solver::parallelExportUnaryClause(Lit p) {
+5311c5313
+< void Solver::parallelExportClauseDuringSearch(Clause &c) {
+---
+> inline void Solver::parallelExportClauseDuringSearch(Clause &c) {
+5314,5315c5316
+< 
+< bool Solver::parallelJobIsFinished() {
+---
+> inline bool Solver::parallelJobIsFinished() {
+5321c5322
+< void Solver::parallelImportClauseDuringConflictAnalysis(Clause &c, CRef confl) {
+---
+> inline void Solver::parallelImportClauseDuringConflictAnalysis(Clause &c, CRef confl) {
