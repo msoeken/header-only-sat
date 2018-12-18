@@ -36,5 +36,7 @@ cat $CORE/Solver.h | sed -e "s/^#include \"mtl\/.*$//g" -e "s/^#include \"core\/
 cat $CORE/Solver.cc | sed -e "s/^#include \"mtl\/.*$//g" -e "s/^#include \"core\/.*$//g" -e "s/^#include \"utils\/.*$//g" -e "s/^#include\"simp\/.*$//g"  -e "s/using namespace Glucose;/namespace Glucose {/g" >> glucose.hpp
 echo "} // using namespace Glucose" >> glucose.hpp
 
+patch glucose.hpp < patches/glucose-function-inline-and-stdout.patch
+
 rm glucose-syrup-4.1.tgz
 rm -Rf glucose-syrup-4.1
